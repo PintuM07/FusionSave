@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scrollbar-width: none;
+}
+body {
+  min-height: 200vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow-y: scroll;
+}
+/* From Uiverse.io by Navarog21 */ 
+button {
+  width: 10em;
+  position: relative;
+  height: 3.5em;
+  border: 1px ridge #149CEA;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  transition: 1s;
+  border-radius: 0.3em;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+button::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  transition: 0.5s;
+}
+
+button:hover::before, button:hover::after {
+  transform: scale(0)
+}
+
+button:hover {
+  box-shadow: inset 0px 0px 25px #1479EA;
+}
+
+    /* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #ffffff;
+  color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  z-index: 1000;
+  height: 100px;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+nav.scrolled {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;      /* enable clicks */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.75)
+  );
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+
+    /* Logo */
+    .logo {
+      font-family: "Bebas Neue", sans-serif ;
+      font-size: 2.7rem;
+      font-weight: bold;
+      margin-left: 100px;
+      color: #1479EA;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+
+    /* Nav Links */
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      margin-right: 100px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #1479EA;;
+      left: 0;
+      bottom: -4px;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #1479EA;;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile menu */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 65px;
+        right: -100%;
+        background: #333;
+        flex-direction: column;
+        width: 200px;
+        padding: 20px;
+        gap: 15px;
+        transition: right 0.4s ease-in-out;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* <-- hero section --> */
+.hero {
+  background: url('/image/bg_fusion.jpg') no-repeat center center/cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  margin: 0;
+  border-radius: 0;
+  position: relative;
+  z-index: 1;
+}
+.hero-content{
+  padding: 50px;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.18);
+  font-weight: 900;
+  font-style: normal;
+  border-radius: 20px;
+  margin: 50px 0;
+}
+.hero-content{
+  font-family: "Bodoni Moda", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+.button-container{
+  display: flex;
+  gap: 20px;
+  height: 100px;
+  align-items: center;
+}
+
+/* About Section */
+
+.about {
+  height: 80vh;
+  margin: 50px;
+  background-color: rgba(255, 255, 255,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.about-text {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+.about-card {
+  background-image: url('/image/bg_fusion.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 300px;
+  height: 400px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  margin: 50px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+.about-card:hover{
+  transform: scale(1.05);
+}
+
+/* Dashboard section */
+.dashboard { 
+  text-align: center; 
+  height: 60vh;
+  margin: 50px;
+  background-color: rgba(255, 255, 255,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.cards { 
+  display: flex; 
+  gap: 2.5rem; 
+  justify-content: center; 
+  align-items: center;
+  margin: 2rem 0; 
+  flex-wrap: wrap;
+  padding: 50px; 
+}
+.card { 
+  background: #f9f9f9; 
+  padding: 1.5rem; 
+  border-radius: 10px; 
+  width: 500px; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  transition: transform 0.3s ease;
+}
+.card:hover{
+  transform: scale(1.05);
+}
+
+.card .danger { color: red; }
+.card .success { color: green; }
+.features ul, .resources ul { list-style: none; }
+.features li, .resources li { margin: 0.5rem 0; }
+.how ol { padding-left: 1.5rem; }
+
+
+
+
+/* chatbot */
+/* Bot Icon */
+#bot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #128c7e;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Chat Box */
+#chat-container {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  background: #ece5dd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Chat Log */
+#chat-log {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  background: #efeae2;
+}
+
+/* Messages */
+.message {
+  max-width: 75%;
+  padding: 8px 12px;
+  margin: 8px 0;
+  border-radius: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  display: inline-block;
+  clear: both;
+}
+
+.user-message {
+  background: #dcf8c6;
+  float: right;
+  border-bottom-right-radius: 2px;
+}
+
+.bot-message {
+  background: #fff;
+  float: left;
+  border-bottom-left-radius: 2px;
+}
+
+/* Input Area */
+#chat-input {
+  display: flex;
+  padding: 10px;
+  background: #f0f0f0;
+  border-top: 1px solid #ccc;
+}
+
+#user-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+}
+
+.send-button {
+  margin-left: 8px;
+  padding: 10px 16px;
+  border: none;
+  background: #128c7e;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+send-button:hover {
+  background: #075e54;
+}
+
+/* Contact Us */
+#contact{
+  height: 70vh;
+  margin: 50px;
+  background-color: rgba(255, 255, 255,0.3);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+#contact h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+.contact form {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.contact input, .contact textarea {
+  padding: 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* Footer */
+.footer { 
+  background: #333; 
+  color: #fff; 
+  text-align: center; 
+  padding: 1rem; 
+}
+
+

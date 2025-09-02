@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FusionSave</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+  <nav id="navbar">
+    <div class="logo">FusionSave</div>
+    <div class="nav-container">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    </div>
+  </nav>
+  </header>
+
+  <!-- Hero Section -->
+
+   <div class="hero">
+    <div class="hero-content">
+      <h1>Welcome to FusionSave</h1>
+      <h1>Unlock Hidden Costs and Optimize Your Oracle Fusion Spend</h1>
+    </div>
+
+    <div class="button-container">
+      <button class="cta-button">See How It Works</button>
+      <button class="cta-button">Request a Demo</button>
+      </div>
+   </div>
+   <!-- About Section -->
+
+   <div class="about">
+      <div class="about-text">
+        <h1>About Us</h1>
+        <p>FusionSave is dedicated to helping organizations optimize their Oracle Fusion spend by uncovering hidden costs and providing actionable insights.</p>
+      </div>
+      <div class="about-card">
+      </div>
+   </div>
+
+   <!-- Visuals -->
+   <section class="dashboard">
+    <div class="container">
+      <h2>Clarity in Your Cloud Spend</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Active Licenses</h3>
+          <p>320</p>
+        </div>
+        <div class="card">
+          <h3>Unused Licenses</h3>
+          <p class="danger">85</p>
+        </div>
+        <div class="card">
+          <h3>Potential Savings</h3>
+          <p class="success">$120,000</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Bot Icon -->
+<div id="bot-icon" onclick="toggleChat()">💬</div>
+
+<!-- Chat Box (Initially Hidden) -->
+<div id="chat-container" style="display: none;">
+  <div id="chat-log"></div>
+  <div id="chat-input">
+    <input type="text" id="user-input" placeholder="Type a message..." />
+    <button class="send-button" onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+   
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </section>   
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 FusionSave. All rights reserved.</p>
+    </div>
+  </footer>
+
+ <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
