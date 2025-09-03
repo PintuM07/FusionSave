@@ -17,6 +17,7 @@
       <li><a href="#">About</a></li>
       <li><a href="#">Services</a></li>
       <li><a href="#">Contact</a></li>
+      
     </ul>
     <div class="hamburger" id="hamburger">
       <span></span>
@@ -32,7 +33,7 @@
    <div class="hero">
     <div class="hero-content">
       <h1>Welcome to FusionSave</h1>
-      <h1>Unlock Hidden Costs and Optimize Your Oracle Fusion Spend</h1>
+      <h3>Unlock Hidden Costs and Optimize Your Oracle Fusion Spend</h3>
     </div>
 
     <div class="button-container">
@@ -75,7 +76,6 @@
 
 <!-- Bot Icon -->
 <div id="bot-icon" onclick="toggleChat()">💬</div>
-
 <!-- Chat Box (Initially Hidden) -->
 <div id="chat-container" style="display: none;">
   <div id="chat-log"></div>
@@ -87,11 +87,51 @@
 
 
 
+<section id="calculator" class="calculator">
+  <h2>FusionSave Calculator</h2>
+  <p>Find out how much you could save on your Oracle Fusion Cloud spend.</p>
 
+  <!-- Input / Selection -->
+  <div class="calc-input">
+    <label for="spend">What’s your annual spend?</label>
+    <select id="spend">
+      <option value="">-- Select Range --</option>
+      <option value="100000">Less than $100,000</option>
+      <option value="250000">$100,000 – $250,000</option>
+      <option value="500000">$250,000 – $500,000</option>
+      <option value="1000000">$500,000 – $1,000,000</option>
+      <option value="1000000plus">Over $1,000,000</option>
+    </select>
 
+    <button id="calculateBtn">Calculate Savings</button>
+  </div>
 
+  <!-- Dynamic Result Section -->
+  <div id="result" class="result hidden">
+    <h3>Here’s what FusionSave could unlock for you…</h3>
+    <p id="savingsText"></p>
+    <p class="support">That’s money back in your budget, with compliance and clarity included.</p>
+    <button class="cta-btn">See How – Book a Demo</button>
+  </div>
+</section>
+<!-- Services -->
+<section id="services" class="section services">
+  <h2>Our Services</h2>
+  <div class="service">
+    <h3>Cost Analysis</h3>
+    <p>In-depth analysis of your Oracle Fusion spend to identify cost-saving opportunities.</p>
+  </div>
+  <div class="service">
+    <h3>License Optimization</h3>
+    <p>Optimize your existing licenses to ensure you're not paying for unused resources.</p>
+  </div>
+  <div class="service">
+    <h3>Custom Reporting</h3>
+    <p>Tailored reports that provide insights into your cloud spend and usage patterns.</p>
+  </div>
+  <button><a href="services.html">Learn More</a></button>
+</section>
 
-   
   <!-- Contact -->
   <section id="contact" class="section contact">
     <h2>Contact Us</h2>
@@ -104,12 +144,14 @@
   </section>   
   <!-- Footer -->
   <footer class="footer">
+    
     <div class="container">
       <p>© 2025 FusionSave. All rights reserved.</p>
+      <div id="google_translate_element">Translate</div>
     </div>
   </footer>
 
 <script defer src="script.js"></script>
-
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

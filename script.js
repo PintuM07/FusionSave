@@ -53,14 +53,7 @@ async function sendMessage() {
 const hero = document.querySelector('.hero');
 const images = [
   '/image/bg1.jpg',
-  '/image/bg2.jpg',
-  '/image/bg3.jpg',
-  '/image/bg4.jpg',
-  '/image/bg5.jpg',
-  '/image/bg6.jpg',
-  '/image/bg7.jpg',
-  '/image/bg8.jpg',
-  '/image/bg9.jpg',
+  '/image/bg2.png',
   '/image/bg10.jpg'
 ];
 
@@ -72,6 +65,55 @@ function changeBackground() {
 // First load
 changeBackground();
 
-// Change every 5 seconds (slideshow effect)
-// 👉 Comment out if you want only once on load
+// Change every 1 seconds (slideshow effect)
 setInterval(changeBackground, 5000);
+
+document.getElementById("calculateBtn").addEventListener("click", function () {
+  const spend = document.getElementById("spend").value;
+  const resultBox = document.getElementById("result");
+  const savingsText = document.getElementById("savingsText");
+
+  let savingsMsg = "";
+
+  switch (spend) {
+    case "100000":
+      savingsMsg =
+        "With an annual spend of less than $100,000, you could save $20,000 – $40,000 every year.";
+      break;
+    case "250000":
+      savingsMsg =
+        "With an annual spend of $100,000 – $250,000, you could save $50,000 – $75,000 every year.";
+      break;
+    case "500000":
+      savingsMsg =
+        "With an annual spend of $250,000 – $500,000, you could save $75,000 – $150,000 every year.";
+      break;
+    case "1000000":
+      savingsMsg =
+        "With an annual spend of $500,000 – $1,000,000, you could save $150,000 – $300,000 every year.";
+      break;
+    case "1000000plus":
+      savingsMsg =
+        "With an annual spend of over $1,000,000, you could save more than $300,000 every year.";
+      break;
+    default:
+      savingsMsg = "Please select your annual spend range.";
+  }
+
+  if (spend) {
+    resultBox.classList.remove("hidden");
+  }
+
+  savingsText.textContent = savingsMsg;
+});
+
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',  // Original page language
+      includedLanguages: 'en,hi,es,fr,de,bn,ar,zh-CN,ja,ru,it,pt,tr,ko,nl,pl,sv,th,vi,uk,el,he,ta,te,gu,pa',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+      'google_translate_element'
+    );
+  }
