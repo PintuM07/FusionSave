@@ -88,10 +88,9 @@
 
 
 <section id="calculator" class="calculator">
+  <div class="container">
   <h2>FusionSave Calculator</h2>
   <p>Find out how much you could save on your Oracle Fusion Cloud spend.</p>
-
-  <!-- Input / Selection -->
   <div class="calc-input">
     <label for="spend">What’s your annual spend?</label>
     <select id="spend">
@@ -102,11 +101,8 @@
       <option value="1000000">$500,000 – $1,000,000</option>
       <option value="1000000plus">Over $1,000,000</option>
     </select>
-
     <button id="calculateBtn">Calculate Savings</button>
   </div>
-
-  <!-- Dynamic Result Section -->
   <div id="result" class="result hidden">
     <h3>Here’s what FusionSave could unlock for you…</h3>
     <p id="savingsText"></p>
@@ -114,6 +110,8 @@
     <button class="cta-btn">See How – Book a Demo</button>
   </div>
 </section>
+
+
 <!-- Services -->
 <section id="services" class="section services">
   <h2>Our Services</h2>
@@ -131,6 +129,18 @@
   </div>
   <button><a href="services.html">Learn More</a></button>
 </section>
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial">
+      <p>"FusionSave helped us uncover $50,000 in unused licenses. Their insights were invaluable!"</p>
+      <p class="client">- Jane Doe, CFO of TechCorp</p>
+    </div>
+    <div class="testimonial">
+      <p>"The custom reports provided by FusionSave gave us clarity we never had before."</p>
+      <p class="client">- John Smith, IT Director at Innovate Inc.</p>
+    </div>
+  </section>
 
   <!-- Contact -->
   <section id="contact" class="section contact">
@@ -141,7 +151,9 @@
       <textarea placeholder="Your Message" required></textarea>
       <button type="submit" class="btn">Send</button>
     </form>
-  </section>   
+  </section> 
+  
+  
   <!-- Footer -->
   <footer class="footer">
     

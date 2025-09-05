@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 
 /* Reset */
 * {
@@ -12,6 +14,64 @@
 ::-webkit-scrollbar {
   display: none;
 }
+/* General scroll animation */
+.section-hidden {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card,
+.service {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.card.show,
+.service.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animated-text {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.5s ease;
+}
+.animated-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+section {
+  padding: 60px 20px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.card, .service {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.success { color: green; }
+.danger { color: red; }
+
 html {
   scrollbar-width: none;
 }
@@ -176,7 +236,7 @@ nav.scrolled {
 /* Hero Section */
 /* ------------------------- */
 .hero {
-  background: url('/image/bg1.jpg') no-repeat center center/cover;
+  background: url('/image/bg10.jpg') no-repeat center center/cover;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -289,13 +349,14 @@ margin: 1rem 0;
 /* ------------------------- */
 /* Chatbot */
 /* ------------------------- */
+/* Floating Bot Icon */
 #bot-icon {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 60px;
   height: 60px;
-  background: #128c7e;
+  background: #1479EA;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -304,6 +365,13 @@ margin: 1rem 0;
   font-size: 28px;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 999999;
+  animation: floatIcon 2.5s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 #chat-container {
   position: fixed;
@@ -319,12 +387,14 @@ margin: 1rem 0;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 999999;
 }
 #chat-log {
   flex: 1;
   overflow-y: auto;
   padding: 10px;
   background: #efeae2;
+  z-index: 999999;
 }
 .message {
   max-width: 75%;
@@ -363,99 +433,122 @@ margin: 1rem 0;
   margin-left: 8px;
   padding: 10px 16px;
   border: none;
-  background: #128c7e;
+  background: #1479EA;
   color: white;
   border-radius: 20px;
   cursor: pointer;
 }
 .send-button:hover {
-  background: #075e54;
+  background: #1479EA;
 }
-
-
 /* ===== Calculator Section ===== */
 .calculator {
-  padding: 60px 20px;
-  background: #f9fafb;
-  text-align: center;
-  font-family: Arial, sans-serif;
+  height: auto;
+  margin: 50px;
+  background-color: rgba(255, 255, 255,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+  flex-wrap: wrap;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .calculator h2 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #222;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1e293b;
+  text-align: center;
 }
 
 .calculator p {
-  color: #555;
-  margin-bottom: 30px;
-  font-size: 16px;
+  color: #475569;
+  font-size: 17px;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
-/* Input Box */
+/* Input Section */
 .calc-input {
   max-width: 400px;
   margin: 0 auto;
+  text-align: left;
 }
 
 .calc-input label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
+  color: #334155;
 }
 
 .calc-input select {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
   margin-bottom: 20px;
   font-size: 16px;
+  color: #1e293b;
 }
 
 .calc-input button {
   background: #2563eb;
   color: #fff;
-  padding: 12px 20px;
+  padding: 12px 22px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  transition: background 0.3s ease;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .calc-input button:hover {
   background: #1d4ed8;
+  transform: translateY(-2px);
 }
 
-/* Result Section */
+/* Result Box */
 .result {
   max-width: 600px;
   margin: 40px auto 0;
-  background: #fff;
+  background: #ffffff;
   padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  text-align: center;
 }
 
 .result h3 {
   font-size: 22px;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 15px;
-  color: #047857;
+  color: #059669;
 }
 
-.result p {
-  font-size: 17px;
-  color: #333;
+/* Animated Result Line */
+.animated-text {
+  font-size: 18px;
+  color: #1e293b;
   margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.5s ease;
+}
+
+.animated-text.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .result .support {
-  color: #666;
+  color: #64748b;
   font-size: 15px;
   margin-bottom: 25px;
 }
@@ -463,22 +556,25 @@ margin: 1rem 0;
 .cta-btn {
   background: #059669;
   color: #fff;
-  padding: 12px 22px;
+  padding: 12px 24px;
   border: none;
   border-radius: 8px;
   font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .cta-btn:hover {
   background: #047857;
+  transform: translateY(-2px);
 }
 
 /* Hide by default */
 .hidden {
   display: none;
 }
+
 
 
 /* ------------------------- */

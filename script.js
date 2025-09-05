@@ -50,12 +50,12 @@ async function sendMessage() {
 // =============================
 // Random Hero Background
 // =============================
-const hero = document.querySelector('.hero');
-const images = [
-  '/image/bg1.jpg',
-  '/image/bg2.png',
-  '/image/bg10.jpg'
-];
+// const hero = document.querySelector('.hero');
+// const images = [
+//   '/image/bg1.jpg',
+//   '/image/bg2.png',
+//   '/image/bg10.jpg'
+// ];
 
 function changeBackground() {
   const randomImage = images[Math.floor(Math.random() * images.length)];
@@ -63,11 +63,11 @@ function changeBackground() {
 }
 
 // First load
-changeBackground();
+// changeBackground();
 
 // Change every 1 seconds (slideshow effect)
-setInterval(changeBackground, 5000);
-
+// setInterval(changeBackground, 5000);
+// Calculator Logic
 document.getElementById("calculateBtn").addEventListener("click", function () {
   const spend = document.getElementById("spend").value;
   const resultBox = document.getElementById("result");
@@ -102,10 +102,55 @@ document.getElementById("calculateBtn").addEventListener("click", function () {
 
   if (spend) {
     resultBox.classList.remove("hidden");
+    savingsText.classList.remove("show"); // reset
+    setTimeout(() => {
+      savingsText.textContent = savingsMsg;
+      savingsText.classList.add("show");
+    }, 50);
   }
-
-  savingsText.textContent = savingsMsg;
 });
+
+// Scroll Animations
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(
+    ".about, .dashboard, #calculator, #services, .testimonials, #contact"
+  );
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("section-visible");
+
+          // Dashboard stagger cards
+          if (entry.target.classList.contains("dashboard")) {
+            const cards = entry.target.querySelectorAll(".card");
+            cards.forEach((card, i) => {
+              setTimeout(() => card.classList.add("show"), i * 200);
+            });
+          }
+
+          // Services stagger
+          if (entry.target.id === "services") {
+            const services = entry.target.querySelectorAll(".service");
+            services.forEach((service, i) => {
+              setTimeout(() => service.classList.add("show"), i * 250);
+            });
+          }
+
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  sections.forEach((section) => {
+    section.classList.add("section-hidden");
+    observer.observe(section);
+  });
+});
+
 
   function googleTranslateElementInit() {
     new google.translate.TranslateElement(
